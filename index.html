@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="libs/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@%5E3.2.x/dist/aframe-animation-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras.animation-mixer@3.4.0/dist/aframe-extras.animation-mixer.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v1.14.0/dist/aframe-extras.min.js"></script>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<a-scene>
+    <a-assets>
+      <a-asset-item id="mouse" src="assets/mouse.dae"></a-asset-item>
+
+    </a-assets>
+    <a-sky color="#ECECEC"></a-sky>
+    <a-entity position="0 1.5 0">
+        <a-camera universal-controls>
+            <a-entity raycaster="far: 150; objects: .intersectable" cursor geometry="primitive: ring; radiusOuter: 0.030;
+                              radiusInner: 0.01; segmentsTheta: 32" material="color: #283644; shader: flat" position="0 0 -0.75"></a-entity>
+        </a-camera>
+    </a-entity>
+
+    <!-- moving box
+
+    <a-box color="tomato" position="0 2 5" depth="2" height="2" width="2" class="intersectable">
+        <a-animation begin="click" attribute="position" from="0 2 5" to= "0 2 0" dur="3000"></a-animation>
+    </a-box>
+-->
+
+
+
+
+    <!-- Floor -->
+    <a-entity static-body geometry="primitive: box; depth: 25; height: 0.01; width: 25" position="0 0 0" material="shader: standard; side: double; opacity: 1;
+src: url(images/floor2.jpg); repeat: 5 5"></a-entity>
+    <!-- Ceiling -->
+    <a-entity static-body geometry="primitive: box; depth: 25; height: 0.01; width: 25" position="0 10 0" material="shader: standard; side: double; opacity: 1;
+src: url(images/ceiling2.jpg); repeat: 1 1"></a-entity>
+    <!-- Walls -->
+    <a-entity static-body geometry="primitive: box; depth: 1; height: 10; width: 25" position="-12 5 0" rotation="0 90 0" material="shader: standard;
+roughness: 1; src: url(images/ceiling2.jpg); repeat: 1 1"></a-entity>
+    <a-entity static-body geometry="primitive: box; depth: 1; height: 10; width: 25" position="12 5 0" rotation="0 90 0" material="shader: standard;
+roughness: 1; src: url(images/ceiling2.jpg); repeat: 1 1"></a-entity>
+    <a-entity static-body geometry="primitive: box; depth: 1; height: 10; width: 25" position="0 5 12" rotation="0 0 0" material="shader: standard;
+roughness: 1; src: url(images/ceiling2.jpg); repeat: 1 1"></a-entity>
+    <a-entity static-body geometry="primitive: box; depth: 1; height: 10; width: 25" position="0 5 -12" rotation="0 0 0" material="shader: standard;
+roughness: 1; src: url(images/ceiling2.jpg); repeat: 1 1"></a-entity>
+
+    <!-- Lightning -->
+    <a-entity id="lightSphere" geometry="primitive: sphere; radius: 0.1"  material="color:#FFF; opacity: 1; shader: flat" light="type :ambient; intensity:0.8" position="0 10 -5"  rotation="0 0 0" scale="1 1 1" visible="true"></a-entity>
+
+
+    <!-- table -->
+    <a-entity static-body geometry="primitive: box; depth: 3; height: 0.3; width: 5" position="-8.6 2 -10" rotation="0 0 0" material="shader: standard;
+roughness: 1; src: url(images/table_texture.jpg)">
+        <a-entity static-body geometry="primitive: cylinder; radius: 0.1; height: 2; width: 0.3" position="-2.2 -1 -0.9" rotation="-0.5 0 0" material="shader: standard;
+roughness: 1; src: url(images/table_texture.jpg)"></a-entity>
+        <a-entity static-body geometry="primitive: cylinder; radius: 0.1; height: 2; width: 0.3" position="2.2 -1 -0.9" rotation="-0.5 0 0" material="shader: standard;
+roughness: 1; src: url(images/table_texture.jpg)"></a-entity>
+        <a-entity static-body geometry="primitive: cylinder; radius: 0.1; height: 2; width: 0.3" position="-2.2 -1 0.9" rotation="-0.5 0 0" material="shader: standard;
+roughness: 1; src: url(images/table_texture.jpg)"></a-entity>
+        <a-entity static-body geometry="primitive: cylinder; radius: 0.1; height: 2; width: 0.3" position="2.2 -1 0.9" rotation="-0.5 0 0" material="color:#FFF; shader: standard;
+roughness: 1; src: url(images/table_texture.jpg)"></a-entity>
+    </a-entity>
+
+
+    <!-- computer-chair -->
+    <!-- Wheel connectors -->
+    <!--
+    <a-entity static-body geometry="primitive: sphere; radius:0.125" position="0 0.6 -5" rotation="0 0 0" material="color:#F00; shader: standard; roughness:1 ">
+        <a-entity static-body geometry="primitive: box; depth:0.1; height: 0.1; width: 1" position="-0.35 -0.25 0.25" rotation="0 30 30" material="shader: standard;
+roughness: 1; src: url(images/chair_plastic.jpg); repeat: 10 10"></a-entity>
+            <a-entity static-body geometry="primitive: sphere; radius:0.1" position="0.70 -0.5 0.45" material="color:#00F; shader:standard; roughness:1"></a-entity>
+        <a-entity static-body geometry="primitive: box; depth:0.1; height: 0.1; width: 1" position="0.35 -0.25 0.25" rotation="0 -30 -30" material="shader: standard;
+roughness: 1; src: url(images/chair_plastic.jpg); repeat: 10 10"></a-entity>
+            <a-entity static-body geometry="primitive: sphere; radius:0.1" position="-0.70 -0.5 0.45" material="color:#00F; shader:standard; roughness:1"></a-entity>
+        <a-entity static-body geometry="primitive: box; depth:0.1; height: 0.1; width: 1" position="0 -0.25 -0.35" rotation="0 90 150" material="shader: standard;
+roughness: 1; src: url(images/chair_plastic.jpg); repeat: 10 10"></a-entity>
+            <a-entity static-body geometry="primitive: sphere; radius:0.1" position="0 -0.5 -0.75" material="color:#00F; shader:standard; roughness:1"></a-entity>
+        <a-entity static-body geometry="primitive: box; depth:0.1; height: 1; width: 0.1" position="0 0.5 0" rotation="0 0 0" material="shader: standard;
+roughness: 1; src: url(images/chair_plastic.jpg); repeat: 1 10">
+            <a-entity static-body geometry="primitive: circle; radius:0.600" position="0 0.51 0" material="color:#00F; shader:standard; roughness:1" rotation="-90 0 0 "></a-entity>
+        </a-entity>
+
+
+    </a-entity>
+    -->
+
+    <!-- collado models -->
+    <!-- gltf models -->
+    <!-- desk chair -->
+    <a-entity collada-model="url(assets/chair.dae)" rotation="0 180 0" position="-8 0 -10.2" material="shader: standard;
+roughness: 1; repeat: 1 1" scale="0.5 0.5 0.5" c>
+        <a-animation begin="click" attribute="position" to= "-8 0 -7" direction="alternate"  dur="1000"></a-animation>
+    </a-entity>
+
+    <!-- computer monitor -->
+    <a-entity collada-model="url(assets/computer.dae)" rotation="0 -90 0" position="-11 2.2 -11.2" material="shader: standard;
+roughness: 1; repeat: 1 1" scale="5 5 7"></a-entity>
+    <!-- keyboard -->
+    <a-entity gltf-model="url(assets/scene.gltf)" rotation="0 0 0" position="-9.6 2.2 -9.5" material="shader: standard;
+roughness: 1; repeat: 1 1" scale="0.095 0.095 0.095">
+    </a-entity>
+    <!-- mouse -->
+    <a-entity collada-model="url(assets/mouse.dae)" rotation="0 180 0" position="-8 2.2 -9.5" material="shader: standard;
+roughness: 1; repeat: 1 1" scale="3 3 3"></a-entity>
+    <!-- pencil holder -->
+    <a-entity collada-model="url(assets/pencilholder.dae)" rotation="0 0 0" position="-11 2.2 -2.8" material="shader: standard;
+roughness: 1" scale="0.15 0.15 0.15"></a-entity>
+    <!-- moving box
+    <a-entity static-body geometry="primitive: box; depth: 3; height: 0.3; width: 5" position="0 2 -4" rotation="0 0 0" material="shader: standard;
+roughness: 1; src: url(images/table_texture.jpg)" class="intersectable">
+        <a-animation begin="click" attribute="position" to="0 2 -8" direction="alternate" dur="2000"></a-animation>
+    </a-entity>
+    -->
+
+
+
+
+</a-scene>
+</body>
+</html>
+
+
+
