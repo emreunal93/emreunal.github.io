@@ -92,18 +92,19 @@ roughness: 1; src: url(images/chair_plastic.jpg); repeat: 1 10">
     <!-- collado models -->
     <!-- gltf models -->
     <!-- desk chair -->
-    <a-entity collada-model="url(assets/chair.dae)" rotation="0 180 0" position="-8 0 -10.2" material="shader: standard;
-roughness: 1; repeat: 1 1" scale="0.5 0.5 0.5"></a-entity>
+    <a-entity static-body collada-model="url(assets/chair.dae)" rotation="0 180 0" position="-8 0 -10.2" material="shader: standard;
+roughness: 1; repeat: 1 1" scale="0.5 0.5 0.5" class></a-entity>
 
     <!-- computer monitor -->
     <a-entity collada-model="url(assets/computer.dae)" rotation="0 -90 0" position="-11 2.2 -11.2" material="shader: standard;
-roughness: 1; repeat: 1 1" scale="5 5 7"></a-entity>
+roughness: 1; repeat: 1 1" scale="5 5 7">
+    </a-entity>
     <!-- keyboard -->
-    <a-entity gltf-model="url(assets/scene.gltf)" rotation="0 0 0" position="-9.6 2.2 -9.5" material="shader: standard;
-roughness: 1; repeat: 1 1" scale="0.095 0.095 0.095">
+    <a-entity collada-model="url(assets/keyboard3.dae)" rotation="0 0 0" position="-10.5 2.2 -9" material="shader: standard;
+roughness: 1; repeat: 1 1" scale="0.55 0.55 0.55">
     </a-entity>
     <!-- mouse -->
-    <a-entity collada-model="url(assets/mouse.dae)" rotation="0 180 0" position="-8 2.2 -9.5" material="shader: standard;
+    <a-entity collada-model="url(assets/mouse.dae)" rotation="0 180 0" position="-7.8 2.2 -9" material="shader: standard;
 roughness: 1; repeat: 1 1" scale="3 3 3"></a-entity>
     <!-- pencil holder -->
     <a-entity collada-model="url(assets/pencilholder.dae)" rotation="0 0 0" position="-11 2.2 -2.8" material="shader: standard;
@@ -114,6 +115,37 @@ roughness: 1; src: url(images/table_texture.jpg)" class="intersectable">
         <a-animation begin="click" attribute="position" to="0 2 -8" direction="alternate" dur="2000"></a-animation>
     </a-entity>
     -->
+    <!-- bed -->
+    <a-entity collada-model="url(assets/bed3.dae)" rotation="0 0 0" position="4 0 -2" material="color:red; shader: standard;
+roughness: 1; repeat: 1 1" scale="3 3 3"></a-entity>
+
+
+    <!-- NightStand -->
+    <a-entity static-body geometry="primitive: box; depth: 1; height: 0.1; width: 1" position="2.2 0.5 -10" rotation="0 0 0" material="shader: standard;
+roughness: 1; src: url(images/nightstand.jpg)" scale="2 2 2">
+        <a-entity static-body geometry="primitive: box; depth: 1; height: 0.1; width: 1" position="0 1 0" rotation="0 0 0" material="shader: standard;
+roughness: 1; src: url(images/nightstand.jpg)"></a-entity>
+        <a-entity static-body geometry="primitive: box; depth: 0.1; height: 1.1; width: 1" position="0 0.5 -0.55" rotation="0 0 0" material="shader: standard;
+roughness: 1; src: url(images/nightstand.jpg)"></a-entity>
+        <a-entity static-body geometry="primitive: box; depth: 0.1; height: 0.9; width: 1" position="-0.45 0.5 0" rotation="0 -90 0" material="shader: standard;
+roughness: 1; src: url(images/nightstand.jpg)"></a-entity>
+        <a-entity static-body geometry="primitive: box; depth: 0.1; height: 0.9; width: 1" position="0.45 0.5 0" rotation="0 -90 0" material="shader: standard;
+roughness: 1; src: url(images/nightstand.jpg)"></a-entity>
+        <a-entity static-body geometry="primitive: box; depth: 1; height: 0.1; width: 0.8" position="0 0.65 0" rotation="0 0 0" material="shader: standard;
+roughness: 1; src: url(images/nightstand.jpg)" class="intersectable">
+            <!-- Nightstand Watch-->
+            <a-entity collada-model="url(assets/watch.dae)" rotation="0 0 0" position="-0.1 0.05 0.25" scale="0.08 0.08 0.08" class="intersectable"></a-entity>
+            <a-animation begin="click" attribute="position" to= "0 0.65 0.5" dur="3000" direction="alternate"></a-animation>
+        </a-entity>
+        <a-entity static-body geometry="primitive: box; depth: 0.1; height: 0.25; width: 0.1" position="-0.45 -0.18 0.45" rotation="0 0 0" material="shader: standard;
+roughness: 1; src: url(images/nightstand.jpg)"></a-entity>
+        <a-entity static-body geometry="primitive: box; depth: 0.1; height: 0.25; width: 0.1" position="0.45 -0.18 0.45" rotation="0 0 0" material="shader: standard;
+roughness: 1; src: url(images/nightstand.jpg)"></a-entity>
+        <a-entity static-body geometry="primitive: box; depth: 0.1; height: 0.25; width: 0.1" position="-0.45 -0.18 -0.55" rotation="0 0 0" material="shader: standard;
+roughness: 1; src: url(images/nightstand.jpg)"></a-entity>
+        <a-entity static-body geometry="primitive: box; depth: 0.1; height: 0.25; width: 0.1" position="0.45 -0.18 -0.55" rotation="0 0 0" material="shader: standard;
+roughness: 1; src: url(images/nightstand.jpg)"></a-entity>
+    </a-entity>
 
 
 
