@@ -6,16 +6,17 @@
     <script src="https://unpkg.com/aframe-animation-component@%5E3.2.x/dist/aframe-animation-component.min.js"></script>
     <script src="https://unpkg.com/aframe-extras.animation-mixer@3.4.0/dist/aframe-extras.animation-mixer.js"></script>
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v1.14.0/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
     <meta charset="UTF-8">
 </head>
 <body>
 
-<a-scene>
+<a-scene light="defaultLightsEnabled: false">
     <a-assets>
       <a-asset-item id="mouse" src="assets/mouse.dae"></a-asset-item>
 
     </a-assets>
-    <a-sky color="#ECECEC"></a-sky>
+    <a-sky src="url(images/sky.jpg)"></a-sky>
     <a-entity position="0 1.5 0">
         <a-camera universal-controls>
             <a-entity raycaster="far: 150; objects: .intersectable" cursor geometry="primitive: ring; radiusOuter: 0.030;
@@ -38,7 +39,7 @@ src: url(images/floor2.jpg); repeat: 5 5"></a-entity>
 src: url(images/ceiling2.jpg); repeat: 1 1"></a-entity>
     <!-- Walls -->
     <a-entity static-body geometry="primitive: box; depth: 1; height: 10; width: 25" position="-12 5 0" rotation="0 90 0" material="shader: standard;
-roughness: 1; src: url(images/ceiling2.jpg); repeat: 1 1"></a-entity>
+roughness: 1; src: url(images/ceiling2.jpg); repeat: 1 1;" ></a-entity>
     <a-entity static-body geometry="primitive: box; depth: 1; height: 10; width: 25" position="12 5 0" rotation="0 90 0" material="shader: standard;
 roughness: 1; src: url(images/ceiling2.jpg); repeat: 1 1"></a-entity>
     <a-entity static-body geometry="primitive: box; depth: 1; height: 10; width: 25" position="0 5 12" rotation="0 0 0" material="shader: standard;
@@ -46,9 +47,9 @@ roughness: 1; src: url(images/ceiling2.jpg); repeat: 1 1"></a-entity>
     <a-entity static-body geometry="primitive: box; depth: 1; height: 10; width: 25" position="0 5 -12" rotation="0 0 0" material="shader: standard;
 roughness: 1; src: url(images/ceiling2.jpg); repeat: 1 1"></a-entity>
 
-    <!-- Lightning -->
-    <a-entity id="lightSphere" geometry="primitive: sphere; radius: 0.1"  material="color:#FFF; opacity: 1; shader: flat" light="type :ambient; intensity:0.8" position="0 10 -5"  rotation="0 0 0" scale="1 1 1" visible="true"></a-entity>
-
+    <!-- Lightning
+    <a-entity id="lightSphere" geometry="primitive: sphere; radius: 0.1"  material="color:#FFF; opacity: 1; shader: flat" light="type :ambient; intensity:1" position="0 10 -5"  rotation="0 0 0" scale="1 1 1" visible="true"></a-entity>
+    -->
 
     <!-- table -->
     <a-entity static-body geometry="primitive: box; depth: 3; height: 0.3; width: 5" position="-8.6 2 -10" rotation="0 0 0" material="shader: standard;
@@ -91,7 +92,6 @@ roughness: 1; src: url(images/chair_plastic.jpg); repeat: 1 10">
     <!-- desk chair -->
     <a-entity static-body collada-model="url(assets/chair5.dae)" rotation="0 180 0" position="-9 1.8 -7.5" material="shader: standard;
 roughness: 1" scale="0.015 0.015 0.015"></a-entity>
-
     <!-- computer monitor -->
     <a-entity collada-model="url(assets/computer.dae)" rotation="0 -90 0" position="-11 2.2 -11.2" material="shader: standard;
 roughness: 1; repeat: 1 1" scale="5 5 7">
@@ -143,6 +143,59 @@ roughness: 1; src: url(images/nightstand.jpg)"></a-entity>
         <a-entity static-body geometry="primitive: box; depth: 0.1; height: 0.25; width: 0.1" position="0.45 -0.18 -0.55" rotation="0 0 0" material="shader: standard;
 roughness: 1; src: url(images/nightstand.jpg)"></a-entity>
     </a-entity>
+
+    <!-- Fireplace -->
+    <a-entity collada-model="url(assets/fireplace2.dae)" rotation="0 90 0" position="-9 0 9" material="" scale="3 3.7 3">
+        <a-entity geometry="primitive: plane; height: 1; width: 1" position="1.80 0.4 -0.5" rotation="0 0 0" material="shader: flat; transparent: true;
+src: url(images/fire2.png)" scale="0.5 0.5 0.5">
+            <a-animation attribute="position" to="1.85 0.4 -0.5" direction="alternate" repeat="indefinite" dur="1200"></a-animation>
+        </a-entity>
+        <a-entity geometry="primitive: plane; height: 1; width: 1" position="2 0.5 -0.4" rotation="0 0 0" material="shader: flat; transparent: true;
+src: url(images/fire.png)" scale="0.05 0.05 0.05">
+            <a-animation attribute="position" to="2 0.85 -0.4" easing="linear" repeat="indefinite" dur="500"></a-animation>
+        </a-entity>
+        <a-entity geometry="primitive: plane; height: 1; width: 1" position="1.80 0.5 -0.4" rotation="0 0 0" material="shader: flat; transparent: true;
+src: url(images/fire.png)" scale="0.15 0.15 0.15">
+            <a-animation attribute="position" to="1.80 0.85 -0.4" easing="linear" repeat="indefinite" dur="1500"></a-animation>
+        </a-entity>
+        <a-entity geometry="primitive: plane; height: 1; width: 1" position="1.65 0.2 -0.4" rotation="0 0 0" material="shader: flat; transparent: true;
+src: url(images/fire.png)" scale="0.15 0.15 0.15">
+            <a-animation attribute="position" to="1.65 1.5 -0.4" easing="linear" repeat="indefinite" dur="1500"></a-animation>
+        </a-entity>
+    </a-entity>
+
+    <!-- windows welcome screen -->
+    <a-entity static-body id="deneme1" geometry="primitive: box; depth: 0; height: 1.45; width: 2.3" position="-9.7 3.4 -10.4" rotation="0 0 0" material="shader: standard;
+roughness: 1; src: url(images/windowswelcome.jpg)" class="intersectable" visible="true">
+        <a-animation begin="click" attribute="material.opacity" from="1" to="0" direction="alternate"></a-animation>
+        <a-entity static-body geometry="primitive: sphere; radius:0.09" position="0 -0.9 -0.05" rotation="0 0 0" material="shader: standard;
+roughness: 1; color:blue; opacity:0.5" class="intersectable" light="type: point; intensity:0.5; color:blue">
+            <a-animation begin="click" attribute="light.color" from="blue" to="red" direction="alternate"></a-animation>
+            <a-animation begin="click" attribute="material.color" from="blue" to="red" direction="alternate"></a-animation>
+        </a-entity>
+        </a-entity>
+
+
+
+
+
+
+
+
+
+
+    <!-- Lightnings-->
+    <a-entity id="lightSphere" geometry="primitive: sphere; radius: 0.1"  material="color:#FF0; opacity: 1; shader: standard" light="type: ambient; intensity:0.5" position="0 10 -5"  rotation="0 0 0" scale="1 1 1" visible="true"></a-entity>
+    <a-entity collada-model="url(assets/desklamp.dae)" rotation="0 0 0" position="2 2.5 -9.7" material="shader: standard;
+roughness: 1; repeat: 1 1" scale="4 4 4">
+
+        <a-entity visible="true" light="type:point; intensity:0.1; color:yellow" position="0 1 0" class="intersectable" geometry="primitive:sphere; radius:0.1">
+            <a-animation begin="click" attribute="light.intensity" from="0.1" to-="0.25" direction="alternate"></a-animation>
+        </a-entity>
+    </a-entity>
+
+
+
 
 </a-scene>
 </body>
