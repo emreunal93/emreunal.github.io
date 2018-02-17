@@ -166,21 +166,15 @@ src: url(images/fire.png)" scale="0.15 0.15 0.15">
 
     <!-- windows welcome screen -->
     <a-entity static-body id="deneme1" geometry="primitive: box; depth: 0; height: 1.45; width: 2.3" position="-9.7 3.4 -10.4" rotation="0 0 0" material="shader: standard;
-roughness: 1; src: url(images/windowswelcome.jpg)" class="intersectable" visible="true">
+roughness: 1; src: url(images/windowswelcome.jpg)" visible="true">
         <a-animation begin="click" attribute="material.opacity" from="1" to="0" direction="alternate"></a-animation>
         <a-entity static-body geometry="primitive: sphere; radius:0.09" position="0 -0.9 -0.05" rotation="0 0 0" material="shader: standard;
 roughness: 1; color:blue; opacity:0.5" class="intersectable" light="type: point; intensity:0.5; color:blue">
             <a-animation begin="click" attribute="light.color" from="blue" to="red" direction="alternate"></a-animation>
             <a-animation begin="click" attribute="material.color" from="blue" to="red" direction="alternate"></a-animation>
+
         </a-entity>
         </a-entity>
-
-
-
-
-
-
-
 
 
 
