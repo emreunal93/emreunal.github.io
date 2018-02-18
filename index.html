@@ -64,6 +64,13 @@ roughness: 1; src: url(images/table_texture.jpg)"></a-entity>
 roughness: 1; src: url(images/table_texture.jpg)"></a-entity>
     </a-entity>
 
+    <!-- Pencils -->
+    <a-entity collada-model="url(assets/pencilholder9.dae)" rotation="0 0 0" position="-7.5 2.2 -11" material="shader: standard;
+roughness: 1; repeat: 1 1" scale="7 7 7"></a-entity>
+    <a-entity collada-model="url(assets/pencils.dae)" rotation="0 0 0" position="-7.5 2.2 -9" material="shader: standard;
+roughness: 1; repeat: 1 1" scale="0.1 0.1 0.1"></a-entity>
+    <a-entity collada-model="url(assets/purple_pen.dae)" rotation="-10 -25 90" position="-7.325 2.2 -11" material="shader: standard;
+roughness: 1; repeat: 1 1" scale="10 10 10"></a-entity>
 
     <!-- computer-chair -->
     <!-- Wheel connectors -->
@@ -103,19 +110,20 @@ roughness: 1; repeat: 1 1" scale="0.55 0.55 0.55">
     <!-- mouse -->
     <a-entity collada-model="url(assets/mouse.dae)" rotation="0 180 0" position="-7.8 2.2 -9" material="shader: standard;
 roughness: 1; repeat: 1 1" scale="3 3 3"></a-entity>
-    <!-- pencil holder -->
+    <!-- pencil holder
     <a-entity collada-model="url(assets/pencilholder.dae)" rotation="0 0 0" position="-11 2.2 -2.8" material="shader: standard;
 roughness: 1" scale="0.15 0.15 0.15"></a-entity>
+-->
     <!-- moving box
     <a-entity static-body geometry="primitive: box; depth: 3; height: 0.3; width: 5" position="0 2 -4" rotation="0 0 0" material="shader: standard;
 roughness: 1; src: url(images/table_texture.jpg)" class="intersectable">
         <a-animation begin="click" attribute="position" to="0 2 -8" direction="alternate" dur="2000"></a-animation>
     </a-entity>
     -->
-    <!-- bed -->
+    <!-- bed
     <a-entity collada-model="url(assets/bed3.dae)" rotation="0 0 0" position="4 0 -2" material="color:red; shader: standard;
 roughness: 1; repeat: 1 1" scale="3 3 3"></a-entity>
-
+    -->
 
     <!-- NightStand -->
     <a-entity static-body geometry="primitive: box; depth: 1; height: 0.1; width: 1" position="2.2 0.5 -10" rotation="0 0 0" material="shader: standard;
@@ -183,6 +191,9 @@ roughness: 1; color:red; opacity:0.5" class="intersectable" light="type: point; 
 
         </a-entity>
     </a-entity>
+
+
+
     <!-- Lightnings-->
     <!-- Room Lightning and button -->
 
@@ -225,22 +236,46 @@ roughness: 1; repeat: 1 1" scale="3 4 3">
         </a-entity>
     </a-entity>
 
-    <!-- Tree -->
+    <!-- Christmas Tree -->
     <a-entity collada-model="url(assets/christmastree.dae)" rotation="0 0 0" position="8 0 8" material="shader: standard;
 roughness: 1; repeat: 1 1" scale="3 3 3" shadow="receive:false">
     </a-entity>
-
     <a-entity collada-model="url(assets/christmas_socks.dae)" rotation="-45 270 0" position="7 1 5" material="shader: standard;
 roughness: 1; repeat: 1 1" scale="0.5 0.5 0.5" class="intersectable">
         <a-animation begin="click" attribute="position" from="7 1 5" to="7 0 5" direction="alternate"></a-animation>
     </a-entity>
+    <a-entity collada-model="url(assets/gift.dae)" rotation="0 0 0" position="7 0 7" material="shader: standard;
+roughness: 1; repeat: 1 1" scale="1 1 1" class="intersectable"></a-entity>
+    <a-entity collada-model="url(assets/gift.dae)" rotation="0 0 0" position="5 0 8" material="shader: standard;
+roughness: 1; repeat: 1 1" scale="1 1 1" class="intersectable"></a-entity>
+    <a-entity collada-model="url(assets/gift2.dae)" rotation="0 0 0" position="1.5 0 10" material="shader: standard;
+roughness: 1; repeat: 1 1" scale="1 1 1" class="intersectable"></a-entity>
 
-    <a-entity collada-model="url(assets/gift.dae)" rotation="0 0 0" position="7 0 5" material="shader: standard;
-roughness: 1; repeat: 1 1" scale="1 1 1" class="intersectable">
-        <a-entity particle-system="preset: default; color:yellow; particleCount:1; velocityValue:10 10 10; size:1;" position="0 0 0"></a-entity>
-        <a-animation begin="click" attribute="position" from="7 1 5" to="7 0 5" direction="alternate"></a-animation>
-    </a-entity>
 
+    <!-- Eric Cartman Poster -->
+    <a-entity collada-model="url(assets/eric_cartman.dae)" rotation="0 90 0" position="9.81 3 -5.9" material="shader: standard;
+roughness: 1; " scale="3 3 3" class="intersectable" ></a-entity>
+    <a-entity static-body geometry="primitive: box; depth: 0.1; height: 4.5; width: 2.2" position="11.4 4 0" rotation="0 90 0" material="shader: standard;
+roughness: 1; color:#222; opacity:0" class="intersectable" sound="src: url(assets/erichey.wav); on: click"></a-entity>
+    <a-entity static-body geometry="primitive: box; depth: 0.1; height: 4.5; width: 2.5" position="11.4 4 0" rotation="0 90 0" material="shader: standard;
+roughness: 1; color:#222"></a-entity>
+    <a-entity static-body geometry="primitive: box; depth: 0.1; height: 5; width: 3.2" position="11.5 4 0" rotation="0 90 0" material="shader: standard;
+roughness: 1; src: url(images/wooden.jpg)"></a-entity>
+    <a-entity static-body geometry="primitive: box; depth: 0.5; height: 5; width: 0.7" position="11.5 4 -1.6" rotation="0 90 0" material="shader: standard;
+roughness: 1; src: url(images/wooden.jpg)"></a-entity>
+    <a-entity static-body geometry="primitive: box; depth: 0.5; height: 5; width: 0.7" position="11.5 4 1.6" rotation="0 90 0" material="shader: standard;
+roughness: 1; src: url(images/wooden.jpg)"></a-entity>
+    <a-entity static-body geometry="primitive: box; depth: 0.05; height: 0.5; width: 2.5" position="11.3 1.8 0" rotation="0 90 0" material="shader: standard;
+roughness: 1; src: url(images/wooden.jpg)"></a-entity>
+    <a-entity static-body geometry="primitive: box; depth: 0.05; height: 0.5; width: 2.5" position="11.3 6.2 0" rotation="0 90 0" material="shader: standard;
+roughness: 1; src: url(images/wooden.jpg)"></a-entity>
+
+
+    <!-- bed -->
+    <a-entity collada-model="url(assets/bed4.dae)" rotation="0 -90 0" position="12.5 0 -20" material="shader: standard;
+roughness: 1; repeat: 100 100" scale="3 3 4"></a-entity>
+    <a-entity collada-model="url(assets/pillow.dae)" rotation="0 45 0" position="13.5 2 1" material="shader: standard;
+roughness: 1; repeat: 1 1" scale="5 5 5"></a-entity>
 
 
 
