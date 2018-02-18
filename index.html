@@ -119,7 +119,7 @@ roughness: 1; repeat: 1 1" scale="3 3 3"></a-entity>
 
     <!-- NightStand -->
     <a-entity static-body geometry="primitive: box; depth: 1; height: 0.1; width: 1" position="2.2 0.5 -10" rotation="0 0 0" material="shader: standard;
-roughness: 1; src: url(images/nightstand.jpg)" scale="2 2 2">
+roughness: 1; src: url(images/nightstand.jpg)" scale="2 2 2" shadow="receive:true">
         <a-entity static-body geometry="primitive: box; depth: 1; height: 0.1; width: 1" position="0 1 0" rotation="0 0 0" material="shader: standard;
 roughness: 1; src: url(images/nightstand.jpg)"></a-entity>
         <a-entity static-body geometry="primitive: box; depth: 0.1; height: 1.1; width: 1" position="0 0.5 -0.55" rotation="0 0 0" material="shader: standard;
@@ -131,7 +131,7 @@ roughness: 1; src: url(images/nightstand.jpg)"></a-entity>
         <a-entity static-body geometry="primitive: box; depth: 1; height: 0.1; width: 0.8" position="0 0.65 0" rotation="0 0 0" material="shader: standard;
 roughness: 1; src: url(images/nightstand.jpg)" class="intersectable">
             <!-- Nightstand Watch-->
-            <a-entity collada-model="url(assets/watch.dae)" rotation="0 0 0" position="-0.1 0.05 0.25" scale="0.08 0.08 0.08" class="intersectable"></a-entity>
+            <a-entity collada-model="url(assets/watch.dae)" rotation="0 0 0" position="-0.1 0.05 0.25" scale="0.08 0.08 0.08"></a-entity>
             <a-animation begin="click" attribute="position" to= "0 0.65 0.5" dur="3000" direction="alternate"></a-animation>
         </a-entity>
         <a-entity static-body geometry="primitive: box; depth: 0.1; height: 0.25; width: 0.1" position="-0.45 -0.18 0.45" rotation="0 0 0" material="shader: standard;
@@ -164,29 +164,83 @@ src: url(images/fire.png)" scale="0.15 0.15 0.15">
         </a-entity>
     </a-entity>
 
-    <!-- windows welcome screen -->
+    <!-- Fireplace chairs -->
+    <a-entity collada-model="url(assets/chairfire.dae)" rotation="0 225 0" position="-5.5 0 2.75" material="color:red; shader: standard;
+roughness: 1; repeat: 1 1" scale="3 3 3" shadow="receive:true"></a-entity >
+    <a-entity collada-model="url(assets/chairfire.dae)" rotation="0 305 0" position="-9 0 0" material="color:red; shader: standard;
+roughness: 1; repeat: 1 1" scale="3 3 3" shadow="receive:true"></a-entity>
+
+
+
+    <!-- windows welcome screen and lights -->
     <a-entity static-body id="deneme1" geometry="primitive: box; depth: 0; height: 1.45; width: 2.3" position="-9.7 3.4 -10.4" rotation="0 0 0" material="shader: standard;
-roughness: 1; src: url(images/windowswelcome.jpg)" visible="true">
-        <a-animation begin="click" attribute="material.opacity" from="1" to="0" direction="alternate"></a-animation>
+roughness: 1; src: url(images/windowswelcome.jpg); opacity:0" visible="true">
+        <a-animation begin="click" attribute="material.opacity" from="0" to="1" direction="alternate"></a-animation>
         <a-entity static-body geometry="primitive: sphere; radius:0.09" position="0 -0.9 -0.05" rotation="0 0 0" material="shader: standard;
-roughness: 1; color:blue; opacity:0.5" class="intersectable" light="type: point; intensity:0.5; color:blue">
-            <a-animation begin="click" attribute="light.color" from="blue" to="red" direction="alternate"></a-animation>
-            <a-animation begin="click" attribute="material.color" from="blue" to="red" direction="alternate"></a-animation>
+roughness: 1; color:red; opacity:0.5" class="intersectable" light="type: point; intensity:0.2; color:red; distance:5" sound="src: url(assets/windows.wav); on: click">
+            <a-animation begin="click" attribute="light.color" from="red" to="blue" direction="alternate"></a-animation>
+            <a-animation begin="click" attribute="material.color" from="red" to="blue" direction="alternate"></a-animation>
 
-        </a-entity>
-        </a-entity>
-
-
-
-    <!-- Lightnings-->
-    <a-entity id="lightSphere" geometry="primitive: sphere; radius: 0.1"  material="color:#FF0; opacity: 1; shader: standard" light="type: ambient; intensity:0.5" position="0 10 -5"  rotation="0 0 0" scale="1 1 1" visible="true"></a-entity>
-    <a-entity collada-model="url(assets/desklamp.dae)" rotation="0 0 0" position="2 2.5 -9.7" material="shader: standard;
-roughness: 1; repeat: 1 1" scale="4 4 4">
-
-        <a-entity visible="true" light="type:point; intensity:0.1; color:yellow" position="0 1 0" class="intersectable" geometry="primitive:sphere; radius:0.1">
-            <a-animation begin="click" attribute="light.intensity" from="0.1" to-="0.25" direction="alternate"></a-animation>
         </a-entity>
     </a-entity>
+    <!-- Lightnings-->
+    <!-- Room Lightning and button -->
+
+
+
+    <!-- lights
+    <a-entity static-body id="lightSphere" geometry="primitive: sphere; radius: 0.1" position="0 2 0" rotation="0 0 0" material="color:#FF0; opacity: 1;
+    shader: standard; roughness: 1" light="type: ambient; intensity:1"  scale="1 1 1" visible="true" class="intersectable">
+        <a-animation begin="click" attribute="light.intensity" from="1" to="0" direction="alternate"></a-animation>
+
+    </a-entity>
+
+    -->
+
+    <!-- Lamp lightning -->
+    <a-entity collada-model="url(assets/desklamp.dae)" rotation="0 0 0" position="2 2.5 -9.7" material="shader: standard;
+roughness: 1; repeat: 1 1" scale="4 4 4">
+        <a-entity visible="true" light="type:point; intensity:0; color:yellow; distance:10; decay:1; castShadow:true" position="0.07 0.325 0.1" class="intersectable" geometry="primitive:box; depth:0.1; height:0.05; width:0.1" material="opacity:0">
+            <a-animation begin="click" attribute="light.intensity" from="0" to="0.25" direction="alternate"></a-animation>
+        </a-entity>
+    </a-entity>
+
+
+
+    <!-- Room Lightning and button -->
+    <a-entity static-body geometry="primitive: box; depth: 0.1; height: 1; width: 0.5" position="0 4 -11.5" rotation="0 0 0" material="shader: standard;
+roughness: 1; src: url(images/nightstand.jpg)">
+        <a-entity static-body geometry="primitive: sphere; radius:0.2" position="0 0 0" rotation="0 0 0" material="shader: standard;
+roughness: 1; src: url(images/wooden.jpg)" light="type:ambient; intensity:0.8; color:white; distance:10;" class="intersectable">
+            <a-animation begin="click" attribute="light.intensity" from="0.8" to="0.1" direction="alternate"></a-animation>
+        </a-entity>
+    </a-entity>
+
+    <!-- Floor Lamp -->
+    <a-entity collada-model="url(assets/floorlamp2.dae)" rotation="0 0 0" position="-5 0 3.8" material="shader: standard;
+roughness: 1; repeat: 1 1" scale="3 4 3">
+        <a-entity static-body id="lightSphere" geometry="primitive: sphere; radius: 0.15" position="0.25 1.325 -0.25" rotation="0 0 0" material="color:#FF0; opacity: 0;
+        shader: standard; roughness: 1; transparent: false" light="type: point; intensity:0.5; color:#FBA; distance:25; castShadow:true"  scale="1 1 1" visible="true" class="intersectable">
+            <a-animation begin="click" attribute="light.intensity" from="0.5" to="0" direction="alternate"></a-animation>
+        </a-entity>
+    </a-entity>
+
+    <!-- Tree -->
+    <a-entity collada-model="url(assets/christmastree.dae)" rotation="0 0 0" position="8 0 8" material="shader: standard;
+roughness: 1; repeat: 1 1" scale="3 3 3" shadow="receive:false">
+    </a-entity>
+
+    <a-entity collada-model="url(assets/christmas_socks.dae)" rotation="-45 270 0" position="7 1 5" material="shader: standard;
+roughness: 1; repeat: 1 1" scale="0.5 0.5 0.5" class="intersectable">
+        <a-animation begin="click" attribute="position" from="7 1 5" to="7 0 5" direction="alternate"></a-animation>
+    </a-entity>
+
+    <a-entity collada-model="url(assets/gift.dae)" rotation="0 0 0" position="7 0 5" material="shader: standard;
+roughness: 1; repeat: 1 1" scale="1 1 1" class="intersectable">
+        <a-entity particle-system="preset: default; color:yellow; particleCount:1; velocityValue:10 10 10; size:1;" position="0 0 0"></a-entity>
+        <a-animation begin="click" attribute="position" from="7 1 5" to="7 0 5" direction="alternate"></a-animation>
+    </a-entity>
+
 
 
 
