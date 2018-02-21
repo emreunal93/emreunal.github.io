@@ -14,7 +14,6 @@
 <a-scene light="defaultLightsEnabled: false">
     <a-assets>
       <a-asset-item id="mouse" src="assets/mouse.dae"></a-asset-item>
-
     </a-assets>
     <a-sky src="url(images/sky.jpg)"></a-sky>
     <a-entity position="0 1.5 0">
@@ -23,6 +22,7 @@
                               radiusInner: 0.01; segmentsTheta: 32" material="color: #283644; shader: flat" position="0 0 -0.75"></a-entity>
         </a-camera>
     </a-entity>
+
 
     <!-- moving box
 
@@ -71,7 +71,7 @@ roughness: 1; repeat: 1 1" scale="7 7 7"></a-entity>
     <a-entity collada-model="url(assets/pencil_stand.dae)" rotation="0 0 0" position="-7.8 2 -10.5" material="shader: standard;
 roughness: 1; repeat: 1 1" scale="6 6 6"></a-entity>
 -->
-
+    <!-- Pencils -->
     <a-entity collada-model="url(assets/pencils.dae)" rotation="0 0 0" position="-7.5 2.2 -9" material="shader: standard;
 roughness: 1; repeat: 1 1" scale="0.1 0.1 0.1"></a-entity>
     <a-entity collada-model="url(assets/purple_pen.dae)" rotation="0 150 0" position="2.2 2.6 -9.2" material="shader: standard;
@@ -104,6 +104,22 @@ roughness: 1; src: url(images/chair_plastic.jpg); repeat: 1 10">
     <!-- desk chair -->
     <a-entity static-body collada-model="url(assets/chair5.dae)" rotation="0 180 0" position="-9 1.8 -7.5" material="shader: standard;
 roughness: 1" scale="0.015 0.015 0.015"></a-entity>
+    <!-- ruffles -->
+    <a-entity collada-model="url(assets/ruffles.dae)" rotation="-30 0 0" position="-12 2.2 -6.8" material="shader: standard;
+roughness: 1; repeat: 1 1" scale="4 4 4"></a-entity>
+
+    <!-- windows welcome screen and lights -->
+    <a-entity static-body id="deneme1" geometry="primitive: box; depth: 0; height: 1.45; width: 2.3" position="-9.7 3.4 -10.4" rotation="0 0 0" material="shader: standard;
+roughness: 1; src: url(images/windowswelcome.jpg); opacity:0" visible="true">
+        <a-animation begin="click" attribute="material.opacity" from="0" to="1" direction="alternate"></a-animation>
+        <a-entity static-body geometry="primitive: sphere; radius:0.09" position="0 -0.9 -0.05" rotation="0 0 0" material="shader: standard;
+roughness: 1; color:red; opacity:0.5" class="intersectable" light="type: point; intensity:0.2; color:red; distance:5" sound="src: url(assets/windows.wav); on: click">
+            <a-animation begin="click" attribute="light.color" from="red" to="blue" direction="alternate"></a-animation>
+            <a-animation begin="click" attribute="material.color" from="red" to="blue" direction="alternate"></a-animation>
+
+        </a-entity>
+    </a-entity>
+
     <!-- computer monitor -->
     <a-entity collada-model="url(assets/computer.dae)" rotation="0 -90 0" position="-11 2.2 -11.2" material="shader: standard;
 roughness: 1; repeat: 1 1" scale="5 5 7">
@@ -185,17 +201,7 @@ roughness: 1; repeat: 1 1" scale="3 3 3" shadow="receive:true"></a-entity>
 
 
 
-    <!-- windows welcome screen and lights -->
-    <a-entity static-body id="deneme1" geometry="primitive: box; depth: 0; height: 1.45; width: 2.3" position="-9.7 3.4 -10.4" rotation="0 0 0" material="shader: standard;
-roughness: 1; src: url(images/windowswelcome.jpg); opacity:0" visible="true">
-        <a-animation begin="click" attribute="material.opacity" from="0" to="1" direction="alternate"></a-animation>
-        <a-entity static-body geometry="primitive: sphere; radius:0.09" position="0 -0.9 -0.05" rotation="0 0 0" material="shader: standard;
-roughness: 1; color:red; opacity:0.5" class="intersectable" light="type: point; intensity:0.2; color:red; distance:5" sound="src: url(assets/windows.wav); on: click">
-            <a-animation begin="click" attribute="light.color" from="red" to="blue" direction="alternate"></a-animation>
-            <a-animation begin="click" attribute="material.color" from="red" to="blue" direction="alternate"></a-animation>
 
-        </a-entity>
-    </a-entity>
 
 
 
@@ -213,7 +219,7 @@ roughness: 1; color:red; opacity:0.5" class="intersectable" light="type: point; 
 
     -->
 
-    <!-- Lamp lightning -->
+    <!-- Desk Lamp lightning -->
     <a-entity collada-model="url(assets/desklamp.dae)" rotation="0 0 0" position="2 2.5 -9.7" material="shader: standard;
 roughness: 1; repeat: 1 1" scale="4 4 4">
         <a-entity visible="true" light="type:point; intensity:0; color:yellow; distance:10; decay:1; castShadow:true" position="0.07 0.325 0.1" class="intersectable" geometry="primitive:box; depth:0.1; height:0.05; width:0.1" material="opacity:0">
@@ -285,13 +291,15 @@ roughness: 1; repeat: 1 1" scale="6 5 15"></a-entity>
 roughness: 1; repeat: 1 1" scale="6 5 15"></a-entity>
 
 
-    <a-entity collada-model="url(assets/ruffles.dae)" rotation="-30 0 0" position="-12 2.2 -6.8" material="shader: standard;
-roughness: 1; repeat: 1 1" scale="4 4 4"></a-entity>
 
 
-
-
-
+    <!-- Texts -->
+    <a-text id="instruction_desklamp" side="double" color="black" position="1 5 -10" scale="1 1 1" rotation="0 0 0" value="Click lamp to switch it on/off"></a-text>
+    <a-text id="instruction_room_button" side="double" color="brown" position="-1 5.5 -11" scale="1 1 1" rotation="0 0 0" value="Click button to switch \nroom's light on/off"></a-text>
+    <a-text id="instruction_computer" side="double" color="brown" position="-11 5.5 -10" scale="1 1 1" rotation="0 45 0" value="Click button to turn \n monitor on/off"></a-text>
+    <a-text id="instruction_floor_lamp" side="double" color="red" position="-5 7.5 4" scale="1 1 1" rotation="0 90 0" value="Click on lamp to turn \n monitor on/off"></a-text>
+    <a-text id="instruction_eric" side="double" color="black" position="11 7.5 -1" scale="1 1 1" rotation="0 270 0" value="Click on Eric and let him \n say hey to you"></a-text>
+    <a-text id="instruction_eric" side="double" color="purple" position="1.4 1 -10" scale="1 1 1" rotation="0 0 0" value="Click on drawer\n to see time"></a-text>
 
 
 </a-scene>
