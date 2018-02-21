@@ -128,10 +128,13 @@ Wood textures
 [Floor texture](http://www.myfreetextures.com/wp-content/uploads/2014/10/seamless-wood-planks-4.jpg).
 
 [Bed](https://3dwarehouse.sketchup.com/model/ef81985e595060ad426a0a9c1977c89b/Double-bed).
+
 [Bed Texture](https://cdn.shopify.com/s/files/1/1069/9082/products/cave-small-orange-fabric.jpg?v=1518025946).
+
 [Pillow](https://3dwarehouse.sketchup.com/model/177e0e74-6de5-48f6-ba82-2e78b336bde8/Pillow-Linquist).
 
 [Chair](https://3dwarehouse.sketchup.com/model/u9e73a78b-3ba8-4dcc-988f-39baa28c8e80/Gabby-Reagan-Chair).
+
 [Chair Leather Texture](https://lh3.googleusercontent.com/YUjxoL3piUPxibeJQgMxxoIJkm6XKeoIkTqsYSeqhf-bilJKUyNajcUgutc4xeU4Ds0QsQ=s128).
 
 [Fireplace](https://github.com/emreunal93/emreunal.github.io/blob/master/assets/fireplace2.dae).
