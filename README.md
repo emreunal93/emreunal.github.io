@@ -115,11 +115,9 @@ User can interact with Eric Cartman’s picture on the wall by clicking on it wh
 
 ### Models
 
-Wood textures
+[Wood Natural](https://lh3.googleusercontent.com/qfRZUZmHlHHzGy01fbBU1Xst7JuCfpIgWK9qwkc2g9XhnJ8SmDew7QejWVDIjRf06jvg8g=s155).
 
-[Natural](https://lh3.googleusercontent.com/qfRZUZmHlHHzGy01fbBU1Xst7JuCfpIgWK9qwkc2g9XhnJ8SmDew7QejWVDIjRf06jvg8g=s155).
-
-[Dark](https://lh3.googleusercontent.com/zuw6Ad_BZAYmalE9NNVvsDMQItd4XzQPSHeQ97f2QOIPOCItDwCIzB-VOH9zkxolmhS8Rg=s170).
+[Wood Dark](https://lh3.googleusercontent.com/zuw6Ad_BZAYmalE9NNVvsDMQItd4XzQPSHeQ97f2QOIPOCItDwCIzB-VOH9zkxolmhS8Rg=s170).
 
 [Fireplace bottom](https://lh3.googleusercontent.com/YvPuqCZJjG2Vg5YeePfQ_WXYJCi-UgpCeMZyskwTNW33zRj6yM24dGne8NC3FLkcfqBerA=s85).
 
