@@ -175,6 +175,7 @@ Chair
 Nightstand
 Switch button
 Picture Frame
+Computer Desk
 ```
 
 
